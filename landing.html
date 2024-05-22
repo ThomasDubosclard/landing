@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actualité Sportive</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
+</head>
+<body>
+    <header>
+        <h1>L'équipe 21 made in Audencia</h1>
+    </header>
+    <nav>
+        <a href="#" data-section="home">Accueil</a>
+        <a href="#" data-section="football">Football</a>
+        <a href="#" data-section="basketball">Basketball</a>
+        <a href="#" data-section="tennis">Tennis</a>
+        <a href="#" data-section="rugby">Rugby</a>
+    </nav>
+    <div class="container">
+        <section id="home" class="section">
+            <h2>Bienvenue sur notre site d'actualité sportive, notre start-up a pour ambition de révolutionner les médias de l'actualité sportive afin de la rendre accessible au plus grand nombre et de la manière la plus efficace possible.</h2>
+            <p>Choisissez une rubrique pour voir les dernières nouvelles :</p>
+            <div class="buttons">
+                <a href="#" class="button" data-section="football">Football</a>
+                <a href="#" class="button" data-section="basketball">Basketball</a>
+                <a href="#" class="button" data-section="tennis">Tennis</a>
+                <a href="#" class="button" data-section="rugby">Rugby</a>
+            </div>
+        </section>
+        <section id="football" class="section hidden">
+            <h2>Actualité Football</h2>
+            <img src="images/football.jpg" height="40%" width="40%" alt="Football" class="section-image">
+            <p>L'OL se qualifie héroïquement en ligue Europa, l'OM quant à lui, grâce à sa 8ème place, est directement qualifié pour la ligue 1 de l'année prochaine.</p>
+        </section>
+        <section id="basketball" class="section hidden">
+            <h2>Actualité Basketball</h2>
+            <img src="images/basketball.jpg" alt="Basketball" class="section-image">
+            <p>Les Lakers et Lebron james se font massacrer 4-1 par les denver Nuggets au premier tour des playoffs 2024. Prédiction : les Timberwolves seront champions.</p>
+        </section>
+        <section id="tennis" class="section hidden">
+            <h2>Actualité Tennis</h2>
+            <img src="images/tennis.jpg" alt="Tennis" height="40%" width="40%" class="section-image">
+            <p>Rafael Nadal remportera-t-il son 15ème titre à Roland-Garros, établissant un nouveau record dans l'histoire du tennis? Spoil: non.</p>
+        </section>
+        <section id="rugby" class="section hidden">
+            <h2>Actualité Rugby</h2>
+            <img src="images/rugby.jpg" height="30%" width="30%" alt="Rugby" class="section-image">
+            <p>Le XV d'audencia est le vainqueur de l'édition 2024 du magnifique trophée Pierre Briand, sur l'image on aperçoit l'équipe recevoir son trophée de la part du conseiller municipal nantais en charge des sports.</p>
+        </section>
+    </div>
+    <footer>
+        &copy; 2024 Actualité Sportive. Tous droits réservés.
+    </footer>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const links = document.querySelectorAll('nav a, .button');
+            const sections = document.querySelectorAll('.section');
+
+            links.forEach(link => {
+                link.addEventListener('click', (event) => {
+                    event.preventDefault();
+                    const targetSection = event.target.getAttribute('data-section');
+
+                    sections.forEach(section => {
+                        section.classList.add('hidden');
+                        if (section.id === targetSection) {
+                            section.classList.remove('hidden');
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
